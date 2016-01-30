@@ -1,0 +1,12 @@
+rabbitmq:
+	connection:
+		host: 127.0.0.1
+		user: guest
+		password: guest
+		vhost: /workshop
+	autoSetupFabric: off
+
+doctrine:
+	dbname: test
+	user: root
+	password: heslo
