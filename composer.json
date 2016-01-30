@@ -20,9 +20,21 @@
 		"nette/utils": "^2.3",
 		"latte/latte": "^2.3",
 		"tracy/tracy": "^2.3",
-		"kdyby/rabbitmq": "@dev"
+		"kdyby/rabbitmq": "@dev",
+		"richardfullmer/rabbitmq-management-api": "^1.0",
+		"kdyby/console": "@dev",
+		"kdyby/events": "^3.0",
+		"bunny/bunny": "^0.2.1",
+		"skrz/bunny-bundle": "^1.4",
+		"kdyby/monolog": "@dev",
+		"kdyby/doctrine": "@dev"
 	},
 	"require-dev": {
 		"nette/tester": "^1.6"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "src/App"
+		}
 	}
 }

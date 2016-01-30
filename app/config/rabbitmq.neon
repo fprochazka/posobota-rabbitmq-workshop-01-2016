@@ -1,0 +1,24 @@
+rabbitmq:
+	autoSetupFabric: false
+
+	producers:
+		emails:
+			exchange: {name: emails, type: direct}
+
+	consumers:
+		emails.low:
+			queue: {name: emails.low, routing_keys: [emails.low]}
+			exchange: {name: emails, type: direct}
+			qos: {prefetchCount: 5}
+			idleTimeout: 60
+			callback: @App\EmailQueue::process
+
+		emails.high:
+			queue: {name: emails.high, routing_keys: [emails.high]}
+			exchange: {name: emails, type: direct}
+			qos: {prefetchCount: 5}
+			idleTimeout: 60
+			callback: @App\EmailQueue::process
+
+services:
+	- App\EmailQueue()
