@@ -26,17 +26,15 @@ session:
 	expiration: 14 days
 
 
-decorator:
-	Kdyby\Events\Subscriber:
-		tags: [kdyby.subscriber]
+events:
+	subscribers:
+		- \App\RabbitMq\RabbitConsumerListener()
 
 
 services:
 	router: App\RouterFactory::createRouter
 	security.user:
 		class: App\Stub\UserContext
-
-	- \App\RabbitMq\RabbitConsumerListener()
 
 	- RabbitMq\ManagementApi\Client(
 		baseUrl: 'http://localhost:15672',
