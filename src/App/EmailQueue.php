@@ -50,7 +50,7 @@ class EmailQueue implements Kdyby\RabbitMq\IConsumer
 //            throw new \RuntimeException('DIE');
 //        }
 
-        sleep(6);
+        usleep(200);
 
         // send email
         file_put_contents(__DIR__ . '/../../log/emails.log',
