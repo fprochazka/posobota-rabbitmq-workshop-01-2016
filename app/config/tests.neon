@@ -1,0 +1,4 @@
+rabbitmq:
+	producerS:
+		emails.low:
+			class: \App\RabbitProducerMock
