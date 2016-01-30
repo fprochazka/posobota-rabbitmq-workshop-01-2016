@@ -26,10 +26,23 @@ session:
 	expiration: 14 days
 
 
+events:
+	subscribers:
+		- \App\RabbitMq\RabbitConsumerListener
+
+
 services:
 	router: App\RouterFactory::createRouter
 	security.user:
 		class: App\Stub\UserContext
+
+	- RabbitMq\ManagementApi\Client(
+		baseUrl: 'http://localhost:15672',
+		username: %rabbitmq.connection.user%,
+		password: %rabbitmq.connection.password%
+	)
+
+	- \App\RabbitMq\RabbitManagement(%rabbitmq.connection.vhost%)
 
 
 includes:
