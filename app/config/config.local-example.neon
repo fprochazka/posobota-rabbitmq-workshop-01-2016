@@ -4,7 +4,6 @@ rabbitmq:
 		user: guest
 		password: guest
 		vhost: /workshop
-	autoSetupFabric: off
 
 doctrine:
 	dbname: test
